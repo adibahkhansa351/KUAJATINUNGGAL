@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link ke Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Link ke library animasi AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- CSS internal untuk styling halaman -->
+    <style>
+  
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+   
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-image: url("./img/adc.jpg");
+            background-size: cover;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        nav {
+          position: -webkit-sticky;
+          position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10vh;
+            position: sticky;
+            position: relative;
+            z-index: 1000;
+        }
+
+        /* Container untuk konten navbar */
+        .nav-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+
+        .logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
+
+        .hamburg,
+        .cancel {
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            color: white;
+            display: none;
+            font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+        }
+
+
+        .nav-container .links {
+            display: flex;
+        }
+
+
+        .nav-container .links a {
+            font-size: 1.2rem;
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 550;
+            transition: 0.3s linear;
+        }
+
+        .nav-container .links a:hover {
+            color: rgb(58, 211, 3);
+            border-bottom: 2px solid rgb(58, 211, 3);
+        }
+
+        /* Styling untuk link aktif */
+        .nav-container .links .active {
+            color: rgb(58, 211, 3);
+            border-bottom: 2px solid rgb(58, 211, 3);
+        }
+
+
+        .dropdown {
+            z-index: 1000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            transform: translateY(-500px);
+            width: 100%;
+            height: auto;
+            backdrop-filter: blur(4px) brightness(40%);
+            box-shadow: 0 0 20px black;
+            transition: 0.2s linear;
+        }
+
+        .dropdown .links a {
+            display: flex;
+            color: white;
+            text-decoration: none;
+            padding: 15px 0;
+            justify-content: center;
+            align-items: center;
+            transition: 0.2s linear;
+        }
+
+        .dropdown .links a:hover {
+            background-color: rgb(58, 211, 3);
+        }
+
+        /* About Section Styles */
+        .about-container {
+            flex-direction: column; 
+            gap: 15px;
+            width: 100%;
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-content {
+            width: 80%;
+            max-width: 1200px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: transparent;
+            border-radius: 20px;
+            padding: 3rem;
+            color: white;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .about-header h1 {
+            font-size: 2.5rem;
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .about-id {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .about-id p{
+            font-size: 2.5rem;
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+        
+        .about-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgb(58, 211, 3);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+        }
+
+        }
+        .about-text h2 {
+            color: rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .about {
+            width: 200%;
+            aspect-ratio: 1 0,5;
+            background: rgba(58, 211, 3, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+
+        }
+        .about h1 {
+            color: rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+        .about11 {
+            width: 100%;
+            aspect-ratio: 1 0,5;
+            background: rgba(58, 211, 3, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .about11 h1 {
+            color: rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+        .about-image11 {
+            width: 200%;
+            aspect-ratio: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgb(58, 211, 3);
+        }
+        .about-image11 img {
+            width: 100%;
+            height: 100%;
+           align-items: center;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-header h1 {
+            font-size: 2.5rem;
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+        .service-title {
+            font-size: 1.5rem;
+            color: rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(58, 211, 3, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.5);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+       .service-icon {
+            font-size: 3rem;
+            color: rgb(58, 211, 3);
+            margin-bottom: 1.5rem;
+        }
+        .service-ico {
+            width: 100%;
+            aspect-ratio: 1;
+        }
+        .service-ico img {
+            width: 100%;
+            height: 100%;
+           align-items: center;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(58, 211, 3, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .services-card img {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+}
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background: rgba(58, 211, 3, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgb(58, 211, 3);
+            cursor: pointer;
+        }
+
+        .stat-item h3 {
+            color: rgb(58, 211, 3);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .content-card {
+            background: rgba(58, 211, 3, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(58, 211, 3, 0.3);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 1.5rem;
+        }
+
+        .card-info h3 {
+            color: rgb(58, 211, 3);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-info p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-info .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .technology-tag {
+            background: rgba(58, 211, 3, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: rgb(58, 211, 3);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: rgb(58, 211, 3);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgb(45, 165, 2);
+            transform: translateY(-2px);
+        }
+
+        .award-icon {
+            font-size: 2rem;
+            color: rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+
+        .client-testimonial {
+            font-style: italic;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(58, 211, 3, 0.05);
+            border-radius: 10px;
+        }
+        .catatan {
+            width: 100%;
+            aspect-ratio: -2;
+            background: rgba(58, 211, 3, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 884px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav .logo {
+                position: absolute;
+                top: 16px;
+                left: 15px;
+                font-size: 1.5rem;
+            }
+
+            .nav-container .links {
+                display: none;
+            }
+
+            .hamburg,
+            .cancel {
+                display: block;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .about-container {
+                padding: 1rem;
+            }
+
+            .about-content {
+                width: 95%;
+                /* Memperbesar width untuk layar kecil */
+                padding: 1.5rem;
+            }
+
+            .about-header h1 {
+                font-size: 1.8rem;
+                /* Mengurangi ukuran judul */
+            }
+
+            .about-text h2 {
+                font-size: 1.4rem;
+                /* Mengurangi ukuran sub-judul */
+            }
+
+            .about-text p {
+                font-size: 0.9rem;
+                /* Mengurangi ukuran teks */
+                line-height: 1.4;
+            }
+
+            .about-image {
+                width: 100%;
+                max-height: 250px;
+                /* Membatasi tinggi gambar */
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                /* Tetap 2 kolom tapi lebih kecil */
+                gap: 0.8rem;
+            }
+
+            .stat-item {
+                padding: 0.8rem;
+            }
+
+            .stat-item h3 {
+                font-size: 1.2rem;
+                /* Mengurangi ukuran angka statistik */
+            }
+
+            .stat-item p {
+                font-size: 0.8rem;
+                /* Mengurangi ukuran teks statistik */
+            }
+
+            /* Menyesuaikan padding untuk link statistik */
+            .stat-item a {
+                padding: 0.5rem;
+                display: block;
+            }
+        }
+    </style>
+    <title>About - Portfolio Website</title>
+</head>
+
+<body>
+
+    <!-- Navigasi -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+              <img src="img/zoro.png"
+         alt="Logo Kementerian Agama"
+         width="50"
+         height="30"
+         class="me-2">
+                KUA <span>Jatinunggal</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a
+                        href="index.html">Beranda</a></div>
+                <div class="link active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a
+                        href="about.html">Tentang</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a
+                        href="skill.html">Kearsipan</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a
+                        href="service.html">Layanan</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a
+                        href="contact.html">Kontak</a></div>
+            </div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Beranda</a>
+                <a href="about.html">Tentang</a>
+                <a href="skill.html">Kearsipan</a>
+                <a href="service.html">Layanan</a>
+                <a href="contact.html">Kontak</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Konten utama halaman About -->
+    <div class="about-container">
+        <div class="about-content" id="aboutContent">
+            <!-- Bagian header -->
+            <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                <h1>TENTANG KAMI</h1>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right" data-aos-duration="1500">
+                    <img src="img/bc.jpeg" alt="About Image">
+                </div>
+                <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
+                    <h3>V I S I</h3>
+ <p>
+“Kementerian Agama yang profesional dan andal dalam membangun masyarakat yang saleh, moderat, cerdas dan unggul untuk mewujudkan Indonesia maju yang berdaulat, mandiri, dan berkepribadian berdasarkan gotong royong.”
+ 
+(Peraturan Menteri Agama Nomor 18 Tahun 2020)
+ </p>
+<h3>M I S I</h3>
+
+<H4>1.Meningkatkan kualitas kesalehan umat beragama;</H4>
+<H4>2.Memperkuat moderasi beragama dan kerukunan umat beragama;</H4>
+<H4>3.Meningkatkan layanan keagamaan yang adil, mudah dan merata;</H4>
+<H4>4.Meningkatkan layanan pendidikan yang merata dan bermutu;</H4>
+<H4>5.Meningkatkan produktivitas dan daya saing pendidikan;</H4>
+<H4>6.Memantapkan tata kelola pemerintahan yang baik (Good Governance).</H4>
+   
+                    </div>
+<div class="about" data-aos="fade-right" data-aos-duration="1500">
+              <center>
+                <h1>GEOGRAFIS (PETA) KEPENDUDUKAN</h1>
+              </center>
+<center><h2>LETAK GEOGRAFIS</h2></center>
+              <p>Kantor Urusan Agama Jatinunggal secara Geografis terletak di Kecamatan Jatinunggal dengan ketinggian diatas permukaan laut terendah 145 M, tertinggi 768 M dan luas wilayah 61,49 Km², dengan batas-batas sebagai berikut</p>
+<p>•Sebelah Utara  :  Kec. Jatigede</p>
+<p>•Sebelah Timur  :  Kec. Lemahsugih Kab. Majalengka</p>
+<p>•Sebelah Selatan:  Kec. wado</p>
+<p>•Sebelah Barat  :  Kec. Wado</p>
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7921.063641113619!2d108.1214166489832!3d-6.946416470764473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f32331506fb49%3A0xaf23842156e1bae6!2sKUA%20JATINUNGGAL!5e0!3m2!1sid!2sid!4v1785299655080!5m2!1sid!2sid" width="1000" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+                <li>
+                  <ul>
+
+                  </ul>
+                </li>
+<div class="about-image11" data-aos="fade-right" data-aos-duration="1500">
+                    <img src="img/struktur.jpeg" alt="About Image">
+
+</div>
+                </div>
+                <li>
+                  <ul>
+                 <li>
+                  <ul>
+                  </ul>
+                </li>
+                  </ul>
+                </li>
+                <div class="catatan">
+            <div class="services-header" data-aos="fade-down" data-aos-duration="1500">
+                <h1>URAIAN IMPLEMENTASI PELAKSANAAN</h1>
+                <h1>PROGRAM</h1>
+            </div>
+            <div class="services-grid">
+                <!-- Web Development -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                    <div class="service-icon">
+                    </div>
+                    <h3 class="service-title">KEPALA KUA</h3>
+                    <p class="service-description">1.Memimpin pelaksanaan tugas</p>
+                    <p class="service-description">2.Merumuskan, mengarahkan danmengkordinasikan sasaran program dan rencana KUA</p>
+                  <p class="service-description">4.Melaksanakan koordinasi lintas sektoral instansi-instansi yang lain serta menjamin hubungan yang baik dengan instansi pemerintah di tingkat Kecamatan dalam pelaksanaan tugas-tugas</p>
+                 <p class="service-description">5.Membina dan membimbing staf KUA secara berkala</p>
+                <p class="service-description">6.Mengevaluasi dan melaporkan hasil kerja pelaksanaan tugas kantor</p>
+                </div>
+
+                <!-- UI/UX Design -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+                    <h3 class="service-title">PENGHULU</h3>
+                    <p class="service-description">1.Layanan Pendaftaran Kehendak Nikah</p>
+                    <p class="service-description">2.Layanan Penerbitan Surat Ikrar Berwakil Wali</p>
+                    <p class="service-description">3.Layanan Pemberitahuan Kekurangan Syarat/Penolakan</p>
+                  <p class="service-description">4.Layanan Pengumuman Nikah</p>
+                <p class="service-description">5.Layanan Pelaksanaan dan Pencatatan Nikah</p>
+                <p class="service-description">6.Layanan Perbaikan data Nikah</p>
+                <p class="service-description">7.Layanan Perubahan data Nikah</p>
+                <p class="service-description">8.Layanan Penggantian Buku Nikah</p>
+                <p class="service-description">9.Layanan Penerbitan Surat Keterangan Status Belum menikah</p>
+                </div>
+
+                <!-- Mobile App Development -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+                    <h3 class="service-title">TATAUSAHA DAN RUMAHTANGGA</h3>
+                    <p class="service-description">1.Layanan Bimbingan Zakat & Wakaf</p>
+                    <p class="service-description">2.Layanan Pembuatan AIW & APAIW</p>
+                    <p class="service-description">3.Layanan Pendaftaran tanah wakaf</p>
+                    <p class="service-description">4.Layanan mutase harta benda wakaf</p>
+                    <p class="service-description">5.Layanan AIW & APAIW yang hilang/rusak</p>
+                    <p class="service-description">6.Layanan Surat Rekomendasi pergantian Nazir</p>
+                    <p class="service-description">7.Layanan Penerbitan Surat Pengesahan Nazir dan penggantian nazir</p>
+                </div>
+                <!-- Consulting -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">
+                    <h3 class="service-title">PENGELOLA UMUM OPERASIONAL</h3>
+                    <p class="service-description">1.Layanan Penyedia data keagamaan dan data sarana keagamaan</p>
+                    <p class="service-description">2.Layanan Penerbitan surat rekomendasi bantuan keagamaan</p>
+                </div>
+                <!-- Digital Marketing -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">
+                    <h3 class="service-title">PENGELOLA UMUM OPERASIONAL</h3>
+                    <p class="service-description">1.Layanan Pelaporan Nikah</p>
+                    <p class="service-description">2.Layanan Penerbitan id masjid</p>
+                    <p class="service-description">3.Layanan Penerbitan Surat Keterangan terdaftar masjid</p>
+                    <p class="service-description">4.Layanan Penerbitan Surat Rekomendasi Bantuan Masjid</p>
+                    <p class="service-description">5.Layanan Penerbitan Surat Rekomendasi Perubahan Status Mushola menjadi Masjid</p>
+                   <p class="service-description">6.Layanan Perubahan data mesjid</p>
+                </div>
+
+                <!-- Graphic Design -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">
+                    <h3 class="service-title">PENGELOLA UMUM OPERASIONAL</h3>
+                    <p class="service-description">1.Layanan Penyerahan Buku Nikah</p>
+                    <p class="service-description">2.Layanan legalitas buku nikah</p>
+                    <p class="service-description">3.Layanan Persuratan (TU)</p>
+                    <p class="service-description">4.Layanan kearsipan(TU)</p>
+                </div>
+
+
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+                    <h3 class="service-title">OPERATOR LAYANAN OPERASIONAL</h3>
+                    <p class="service-description">1.Layanan Pencatatan Rujuk</p>
+                    <p class="service-description">2.Layanan Pengajuan Pembatalan Nikah</p>
+                    <p class="service-description">3.Layanan Surat Rekomendası Penetapan Takmir Masjid</p>
+                </div>
+                <!-- UI/UX Design -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+                    <h3 class="service-title">PENGADMINISTRASI PERKANTORAN</h3>
+                    <p class="service-description">1.Layanan Penerbitan Surat Rekomendasi Nikah</p>
+                    <p class="service-description">2.Layanan Pendaftaran Bukti Nikah LN</p>
+                    <p class="service-description">3.Layanap Pencatatan Isbat Nikah </p>
+                    <p class="service-description">4.Layanah Pencatatan Perjanjian Nikah</p>
+                    <p class="service-description">5.Layanan Pencatatan Pembatalan/Perubahan Perjanjian Nikah</p>
+                    <p class="service-description">6.Layanan Deteksi dan Cegah dini Konflik</p>
+                </div>
+                
+
+                <!-- Mobile App Development -->
+
+                <!-- Digital Marketing -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">
+                    <h3 class="service-title">OPERATOR LAYANAN OPERASIONAL</h3>
+                    <p class="service-description">1.Layanan Bimbingan perkawinan Perkawinan Pra Nikah</p>
+                    <p class="service-description">2.Layanan Bimbingan Keluarga Sakinah</p>
+                  <p class="service-description">3.Layanan BK & Mediasi Keluarga</p>
+                    <p class="service-description">4.Layanan kalibrasi arah kiblat</p>
+                </div>
+                </div>
+                <li>
+                  <ul>
+                    
+                  </ul>
+                </li>
+
+                <!-- Graphic Design -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">
+                    <h3 class="service-title">PENYUL AGAMA ISLAM</h3>
+                    <p class="service-description">1. Layanan Konsultasi Syariah</p>
+                    <p class="service-description">2. Layanan Pencegahan Konflik social berdimensi keagamaan</p>
+                    <p class="service-description">3. Layanan Penerbitan surat Rekomendasi pendinan majelis taklim</p>
+                    <p class="service-description">4. Layanan Jaminan Produk Halal</p>
+                    <p class="service-description">5. Layanan Bimbingan & Penyuluhan Keagamaan</p>
+                    <p class="service-description">6. Layanan Sosialisasi & Edukasi Produk Halal</p>
+                </div>
+                </div>
+                 <li>
+                  <ul>
+                <li>
+                  <ul>
+                    
+                  </ul>
+                </li>
+                  </ul>
+                </li>
+<div class="about11" data-aos="fade-right" data-aos-duration="1500">
+              <center>
+                <h1>MONOGRAFI KELEMBAGAAN</h1>
+              </center>
+             <p>KUA Kecamatan Jatinunggal dengan segala keterbatasan sumber daya yang dimilkinya telah berupaya semaksimal mungkin dalam menyelenggarakan pelayanan dan kebutuhan masyarakat Kecamatan Jatinunggal Kabupaten Sumedang Profile Fisik dari KUA Kecamatan Jatinunggal adalah sebagai berikut:</p>
+
+<h2>Gedung dan Tanah KUA</h2>
+            <div class="services-grid">
+                <div class="card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">
+
+                  <p class="service-description">•Nama KUA</p>
+                    <p class="service-description">•Alamat</p>
+                    <p class="service-description">•Luas Tanah</p>
+                    <p class="service-description">•Tahun Pengadaan</p>
+                    <p class="service-description">•Sumber</p>
+                    <p class="service-description">•Luas Gedung</p>
+                    <p class="service-description">•Tahun Pengadaan</p>
+                    <p class="service-description">•Sumber</p>
+      
+                </div>
+
+                <!-- Graphic Design -->
+                <div class="card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">
+                    <p class="service-description">: KUA Kecamatan Jatinunggal</p>
+                    <p class="service-description">: Jln. Wado-Kirisik, Km.05 Sumedang 45376</p>
+                    <p class="service-description">: 210 M²</p>
+                    <p class="service-description">: 2008</p>
+                    <p class="service-description">: Tanah Kas Desa Pawenang</p>
+                  <p class="service-description">: 99 M²</p>
+                    <p class="service-description">: 2009</p>
+                    <p class="service-description">: APBN</p>
+                </div>
+                </div>
+<h2>Sarana KUA</h2>
+            <div class="services-grid">
+                <div class="card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">
+
+                  <p class="service-description">• Listrik</p>
+                    <p class="service-description">• Air</p>
+                    <p class="service-description">• Telepon</p>
+                    <p class="service-description">• Internet</p>
+                </div>
+
+                <!-- Graphic Design -->
+                <div class="card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">
+                    <p class="service-description">: 900 WAT</p>
+                    <p class="service-description">: PDAM</p>
+                    <p class="service-description">: Tidak Ada</p>
+                    <p class="service-description">: Ada (Indihome)</p>
+                </div>
+                </div>
+                </div>
+                 <li>
+                  <ul>
+                  </ul>
+                </li>
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">
+                    <h3 class="service-title">KEGIATAN LINTAS SEKTOR</h3>
+                    
+<h3>Kegiatan Lintas Sektoral yang dilaksanakan oleh KUA Kecamatan Jatinunggal adalah sebagai berikut :</h3>
+<h5>1. Bekerjasama dengan Kecamatan jatinunggal, terkait data base penduduk, maupun program yang akan di laksanakan secara mandiri maupun kolaborasi antar instansi terkait ditingkat kecamatan;</h5>
+
+<h5>2. Bekerjasama dengan Dinas kependudukan terkait dengan pendataan jumlah penduduk beragama di Lingkungan Kecamatan Jatinunggal;</h5>
+
+<h5>3. Bekerjasama dengan Dinas Perindustrian terkait dengan pemantauan lokasi sebagai bahan pendataan Produk halal;</h5>
+
+<h5>4. Bekerjasama dengan MUI dalam hal pembinaan moral dan keagamaan masyarakat,</h5>
+
+<h5>5. Bekerjasama dengan UPZ Kecamatan dalam kaitannya dengan pendataan data mustahık, muzakki serta santunan kepada fakir miskin dan penyelenggaraan bantuan sosial</h5>
+
+<h5>6. Bekerjasama dengan Pengadilan Agama terkait dengan penyediaan data perceraian sebagai bahan masukan bagi pembinaan keluarga Sakinah;</h5>
+
+<h5>7. Bekerjasama dengan UPTD Dal Duk Kecamatan Jatinunggal terkait penyuluhan stunting dan Penyuluhan Pranikah maupun Catin;</h5>
+
+<h5>8. Bekerjasama dengan PKM Jatinunggal terkait Imunisasi Catin dan penanggulangan Stunting,</h5>
+
+<h5>9. Bekerjasama dengan Polsek dan Koramil untuk deteksi dini dan pencegahan Konflik sosial, serta pemberantasan narkoba dan tindak kriminal lainnya,</h5>
+
+<h5>10. Bekerjasama dengan Lembaga Pendidikan tingkat menengah atas, SMA, SMK, МА dan Pesantren untuk pelaksanaan Bimbingan Remaja Usia Sekolah (BRUS)</h5>
+
+<h5>11. Bekerjasama dengan CDK wilayah IX Dinas Kehutanan Provinsi Jawa Barat terkait program Ekoteologi Kementrian Agama.</h5>
+<p>—————————————————————————————————————————————————————————————————————</p>
+<p></p>
+<h3>Sebagai refleksi hasil pelaksanaan tugas dan tanggung jawab aparatur KUA Kecamatan Jatinunggal. Meskipun dengan segala keterbatasan, Alhamdulillah, beberapa Karyawan KUA Jatinunggal telah meraih beberapa prestasi, diantaranya :</h3>
+
+<h5>1. Ibu Hj. Siti Nurjanah S.Pd.I sebagai Juara II Lomba Pembacaan Asmaul Husna pada HUT KORPRI Tingkat Kabupaten Sumedang Tahun 2025,</h5>
+
+<h5>2. Bapak H. Nanang Muhamad Badar S Ag sebagai Juara I Lomba Bulutangkis Ganda Kelas ekcekutife pada acara peringatan Hari Amal Bakti Kementrian Agama ke 80 tahun 2025 Tingkat Kabupaten Sumedang,</h5>
+
+<h5>3. Bapak Yogi Muhamad Nurdin Sebagai Juara III Lomba Bulutangkis Ganda Kelas Epic pada acara peringatan Hari Amal Bakti Kementrian Agama ke 80 tahun 2025 Tingkat Kabupaten Sumedang,</h5>
+
+<h5>4. Bapak Yogi Muhamad Nurdin Sebagai Juara I Lomba Bulutangkis Ganda Kelas umum acara peringatan Hari Amal Bakti Kementrian Agama ke 80 tahun 2025 Tingkat Jawa Barat</h5>
+                </div>
+                <li>
+                  <ul>
+                    
+                  </ul>
+                </li>
+            <div class="services-grid">
+                <!-- Web Development -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                    <div class="service-ico">
+                <img src="img/bc.jpeg" alt="">
+                    </div>
+                </div>
+
+                <!-- UI/UX Design -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+                    <div class="service-ico">
+                <img src="img/adc.jpg" alt="">
+                    </div>
+                </div>
+
+                <!-- Mobile App Development -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+                    <div class="service-ico">
+                <img src="img/struktur.png" alt="">
+                    </div>
+                    </div>
+                </div>
+                </div>
+          </div>
+        </div>
+   </div>
+        </div>
+
+
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+       
+        <script>
+
+            AOS.init({ offset: 0 });
+
+         
+            function hamburg() {
+                const navbar = document.querySelector(".dropdown")
+                navbar.style.transform = "translateY(0px)"
+            }
+
+         
+            function cancel() {
+                const navbar = document.querySelector(".dropdown")
+                navbar.style.transform = "translateY(-500px)"
+            }
+
+           
+            function showProjects() {
+                const aboutContent = document.getElementById('aboutContent');
+                aboutContent.innerHTML = `
+                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                    <h1>My Projects</h1>
+                </div>
+                <div class="content-grid">
+                    ${generateProjectCards()}
+                </div>
+            `;
+                AOS.refresh();
+            }
+
+
+            function showExperience() {
+                const aboutContent = document.getElementById('aboutContent');
+                aboutContent.innerHTML = `
+                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                    <h1>My Experience</h1>
+                </div>
+                <div class="content-grid">
+                    ${generateExperienceCards()}
+                </div>
+            `;
+                AOS.refresh();
+            }
+
+            // Fungsi untuk menampilkan daftar Clients
+            function showClients() {
+                const aboutContent = document.getElementById('aboutContent');
+                aboutContent.innerHTML = `
+                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                    <h1>Client Success Stories</h1>
+                </div>
+                <div class="content-grid">
+                    ${generateClientCards()}
+                </div>
+            `;
+                AOS.refresh();
+            }
+
+            function showAwards() {
+                const aboutContent = document.getElementById('aboutContent');
+                aboutContent.innerHTML = `
+                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                    <h1>Awards & Recognition</h1>
+                </div>
+                <div class="content-grid">
+                    ${generateAwardCards()}
+                </div>
+            `;
+                AOS.refresh();
+            }
+
+            function generateProjectCards() {
+                const projects = [
+                    {
+                        title: "E-Commerce Platform",
+                        image: "img/zoro.jpg",
+                        description: "A full-stack e-commerce solution with payment integration",
+                        technologies: ["React", "Node.js", "MongoDB"]
+                    },
+                    {
+                        title: "Portfolio Website",
+                        image: "img/zoro.jpg",
+                        description: "Responsive portfolio website with modern animations",
+                        technologies: ["HTML", "CSS", "JavaScript"]
+                    },
+                    {
+                        title: "Task Management App",
+                        image: "img/zoro.jpg",
+                        description: "Mobile-first task management application",
+                        technologies: ["Vue.js", "Firebase"]
+                    }
+                    // Add more projects as needed
+                ];
+
+                return projects.map(project => `
+                <div class="content-card" data-aos="fade-up">
+                    <div class="card-image">
+                        <img src="${project.image}" alt="${project.title}">
+                    </div>
+                    <div class="card-info">
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                        <div class="technologies">
+                            ${project.technologies.map(tech => `
+                                <span class="technology-tag">${tech}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            }
+
+            // Fungsi pembantu untuk menghasilkan kartu experience
+            function generateExperienceCards() {
+                const experiences = [
+                    {
+                        title: "Senior Web Developer",
+                        company: "Tech Solutions Inc.",
+                        period: "2021 - Present",
+                        description: "Leading frontend development team and implementing modern web solutions"
+                    },
+                    {
+                        title: "Frontend Developer",
+                        company: "Digital Agency",
+                        period: "2019 - 2021",
+                        description: "Developed responsive websites and web applications"
+                    }
+                    // Add more experiences as needed
+                ];
+
+                return experiences.map(exp => `
+                <div class="content-card" data-aos="fade-up">
+                    <div class="card-info">
+                        <h3>${exp.title}</h3>
+                        <h4>${exp.company}</h4>
+                        <p class="period">${exp.period}</p>
+                        <p>${exp.description}</p>
+                    </div>
+                </div>
+            `).join('');
+            }
+
+            // Fungsi pembantu untuk menghasilkan kartu client
+            function generateClientCards() {
+                const clients = [
+                    {
+                        name: "Ell Udin",
+                        company: "Innovation Corp",
+                        image: "img/zoro.jpg",
+                        testimonial: "Outstanding work on our company website redesign!"
+                    },
+                    {
+                        name: "Ell Ucup",
+                        company: "Tech Startup",
+                        image: "img/zoro.jpg",
+                        testimonial: "Delivered our app ahead of schedule with excellent quality"
+                    }
+                    // Add more clients as needed
+                ];
+
+                return clients.map(client => `
+                <div class="content-card" data-aos="fade-up">
+                    <div class="card-image">
+                        <img src="${client.image}" alt="${client.name}">
+                    </div>
+                    <div class="card-info">
+                        <h3>${client.name}</h3>
+                        <h4>${client.company}</h4>
+                        <p class="client-testimonial">"${client.testimonial}"</p>
+                    </div>
+                </div>
+            `).join('');
+            }
+
+            // Fungsi pembantu untuk menghasilkan kartu award
+            function generateAwardCards() {
+                const awards = [
+                    {
+                        title: "Best Web Design",
+                        organization: "Design Awards 2023",
+                        description: "Recognition for exceptional web design and user experience"
+                    },
+                    {
+                        title: "Innovation Award",
+                        organization: "Tech Summit 2022",
+                        description: "Awarded for innovative use of emerging technologies"
+                    }
+                    // Add more awards as needed
+                ];
+
+                return awards.map(award => `
+                <div class="content-card" data-aos="fade-up">
+                    <div class="card-info">
+                        <div class="award-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>${award.title}</h3>
+                        <h4>${award.organization}</h4>
+                        <p>${award.description}</p>
+                    </div>
+                </div>
+            `).join('');
+            }
+
+            // Fungsi untuk mengembalikan konten awal
+            function restoreInitialContent() {
+                const aboutContent = document.getElementById('aboutContent');
+                aboutContent.innerHTML = `
+                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                    <h1>About Me</h1>
+                </div>
+                <div class="about-grid">
+                    <div class="about-image" data-aos="fade-right" data-aos-duration="1500">
+                        <img src="img/zoro.jpg" alt="About Image">
+                    </div>
+                    <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
+                        <h2>Who Am I?</h2>
+                        <p>I'm a passionate developer and designer with a keen eye for detail and a drive for creating
+                            innovative digital solutions. With expertise in web development, UI/UX design, and content
+                            creation, I bring ideas to life through code and creativity.</p>
+                        <p>My journey in technology began with a simple curiosity and has evolved into a professional
+                            pursuit of excellence in digital craftsmanship.</p>
+
+                        <div class="stats">
+                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200" onclick="showProjects()">
+                                <h3>50+</h3>
+                                <p>Projects Completed</p>
+                            </div>
+                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="400" onclick="showExperience()">
+                                <h3>3+</h3>
+                                <p>Years Experience</p>
+                            </div>
+                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="600" onclick="showClients()">
+                                <h3>20+</h3>
+                                <p>Happy Clients</p>
+                            </div>
+                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="800" onclick="showAwards()">
+                                <h3>15+</h3>
+                                <p>Awards Won</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+                AOS.refresh();
+            }
+
+        </script>
+</body>
+
+</html>
+
